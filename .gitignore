@@ -1,5 +1,4 @@
 *~
 node_modules
-browser-bundle.js
 /docs/browser-bundle.js.map
 /docs/vendor.js.map
