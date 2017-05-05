@@ -1,25 +1,30 @@
 # react-webpack-template
 
-This is a simple template for building React apps. Use this to get started, and if you find yourself needing additional features, see my [webpack-howto](https://github.com/petehunt/webpack-howto).
-
 ## How to use this
 
-  * Clone the repo: `git clone https://github.com/petehunt/react-webpack-template my-new-project`
-  * Install the dependencies: `cd my-new-project && npm install`
-  * Start webpack: `npm start`
-  * Add your code to `index.js` and open `index.html`
-  
-### add the HtmlWebpackPlugin and CommonsChunkPlugin
-HtmlWebpackPlugin:  let the plugin generate an HTML file for you, supply your own template
-CommonsChunkPlugin: consisting of common modules shared between multiple entry points. By separating common modules from bundles, the resulting chunked file can be loaded once initially, and stored in cache for later use.
+* Clone the repo: git clone git@github.com:wendy81/react-webpack-template.git
+* Install the dependencies: npm install
+* Start webpack: npm start
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { resolve } = require('path');
+### devtool
+* devtool: 'source-map'
 
-module.exports = {
-    context: resolve(__dirname),
-    entry: {
+#### Add the plugins
+* html-webpack-plugin
+* CommonsChunkPlugin
+
+
+#### webpack.config.js
+
+	const webpack = require('webpack');
+	const HtmlWebpackPlugin = require('html-webpack-plugin');
+	
+	// only load the resolve method of  the module 'path'
+	const { resolve } = require('path');
+	
+	module.exports = {
+	context: resolve(__dirname),
+	entry: {
       app: './index.js',
       vendor: ['react', 'react-dom']
     },
@@ -49,4 +54,4 @@ module.exports = {
             filename: 'vendor.js'
         })
     ]
-};
+    };
